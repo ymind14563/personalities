@@ -7,7 +7,12 @@ body, img {
     margin-left: 300px; 
 } */
 
-
+body nav button {
+    margin-left: 20px;
+    font-size: 20px;
+    border: none;
+    background-color: white;
+}
 
 .navbar-brand
 {
@@ -152,6 +157,10 @@ body div img {
 @media screen and (max-width: 993px) {
 
     header {
+        display: none;
+    }
+
+    .fa-solid.fa-bars {
         display: none;
     }
 

@@ -47,7 +47,14 @@ personalTypeArr = personalTypeArr.concat(nfFiltered);
 console.log(personalTypeArr);
 
 
-
+// 사이드바에 내용 추가
+personalArr.forEach(el=>{
+    const sidebarText = document.createElement(`a`);
+    sidebarText.textContent = personalArr[{$el}];
+    const offcanvas = document.getElementsByClassName(`offcanvas-body`);
+    
+        
+})
 
 
 // img, text 생성
