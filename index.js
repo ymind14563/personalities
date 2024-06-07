@@ -94,14 +94,14 @@ for (let i = 0; i < personalArr.length; i++) {
 }
 
 
-// img, text 생성
-const body = document.querySelector(`body`);
-const section = document.querySelector(`section`);
+    // img, text 생성
+    const body = document.querySelector(`body`);
+    const section = document.querySelector(`section`);
     body.appendChild(section);
 
 
 
-    personalTypeArr.forEach((el) => {
+    personalTypeArr.forEach((el, index) => {
 
     const article = document.createElement(`article`);
     article.classList.add(`personalities`);
@@ -143,11 +143,14 @@ const section = document.querySelector(`section`);
     img.classList.add(`mx-auto`);
     // img.classList.add(`d-block`);
     img.style.width = `800px`;
+    img.style.opacity = '0'
     imgCol.append(img);
 
 
     const textWrapper = document.createElement(`div`);
     textWrapper.classList.add(`textWrapper`);
+    textWrapper.style.opacity = '0'
+
     textCol.append(textWrapper);
 
     const titleText = document.createElement(`h1`);
@@ -163,6 +166,30 @@ const section = document.querySelector(`section`);
 
     textWrapper.append(contentText);
 
+    // 스크롤 이벤트 추가
+    window.addEventListener('scroll', () => {
+        const value = window.scrollY;
+
+        // 마지막 사진은 스크롤이 끝에 위치하면 나타나도록 함
+        if (index === personalTypeArr.length - 1 && value > img.offsetTop - window.innerHeight) {
+            setTimeout(() => {
+                img.style.animation = 'slide-left 2s ease-out';
+                img.style.opacity = '1';
+
+                textWrapper.style.animation = 'fade-in 3s ease-out';
+                textWrapper.style.opacity = '1';
+            }, 1000);
+        }
+        // 그 외의 사진들은 중간 지점에서 나타나도록 함
+        else if (value > img.offsetTop - window.innerHeight / 2) {
+            img.style.animation = 'slide-left 2s ease-out';
+            img.style.opacity = '1';
+
+            textWrapper.style.animation = 'fade-in 3s ease-out';
+            textWrapper.style.opacity = '1';
+        }
+    });
+    
     }
 )
 
@@ -178,9 +205,31 @@ const section = document.querySelector(`section`);
     btn.setAttribute(`data-bs-toggle`, `modal${j + 1}`);
     btn.setAttribute(`data-bs-target`, `#modal${j + 1}`);
     btn.textContent= `살펴보기`;
+    btn.style.opacity = '0';
 
 
-    // console.log(btn);
+
+    window.addEventListener('scroll', () => {
+        const value = window.scrollY;
+
+        // 마지막은 스크롤이 끝에 위치하면 나타나도록 함
+        if (j === personalTypeArr.length - 1 && value > btn.offsetTop - window.innerHeight) {
+            setTimeout(() => {
+                
+                btn.style.animation = 'fade-in 3s ease-out';
+                btn.style.opacity = '1';
+
+            }, 1000);
+        }
+        // 그 외는 중간 지점에서 나타나도록 함
+        else if (value+400 > btn.offsetTop - window.innerHeight / 2) {
+            btn.style.animation = 'fade-in 3s ease-out';
+            btn.style.opacity = '1';
+
+        }
+    });
+
+    
 
     const textWrapper = document.getElementsByClassName(`textWrapper`)[j];
     textWrapper.parentNode.append(btn);
@@ -223,7 +272,7 @@ const section = document.querySelector(`section`);
     modal_footer.append(modal_btn);
 
     const p = document.createElement('p');
-    // p.textContent = `안녕하세요${[k]}`;
+    
     modal_body.append(p);
 
 

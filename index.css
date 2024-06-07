@@ -1,7 +1,15 @@
 body {
     margin-top: 100px;
+    margin-bottom: 0px;
 }
 
+section {
+
+    /* background: -webkit-linear-gradient(to bottom, #ffffff, #b3e6ff, #d291bc, #ffff99, #b7e4c7); */
+    background: linear-gradient(to bottom, #ffffff, #b3e6ff, #d291bc, #ffff99, #b7e4c7);
+    
+    
+}    
 /* 
 body, img {
     margin: 0;
@@ -52,6 +60,14 @@ div .text-col {
     border: 10px solid transparent;
 }
 
+#enfp {
+    
+    
+    margin-bottom: 0px;
+
+}
+
+
 
 .textWrapper {
     align-items: center;
@@ -78,12 +94,37 @@ div .inform-btn {
     margin-left: 30px;
     height: 50px;
     width: 130px;
+    color: black;
+    border-width: 2px;
+
 }
 
 body div img {
     width: 700px;
-    
+    position: relative; 
+    /* animation: slide 1.5s ease-out; */
 }
+
+@keyframes slide-left {
+    from {
+        left: -200px;
+        opacity: 0;
+    }
+
+    to {
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 .offcanvas-title {
     /* text-align: center;
