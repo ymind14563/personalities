@@ -44,22 +44,59 @@ personalTypeArr = personalTypeArr.concat(spFiltered);
 let nfFiltered = personalArr_lowerCase.filter(el => el.includes('n') && el.includes('f')).map(el => el.toLowerCase());
 personalTypeArr = personalTypeArr.concat(nfFiltered);
 
-console.log(personalTypeArr);
 
 
 // 사이드바에 내용 추가
-personalArr.forEach(el=>{
-    const sidebarText = document.createElement(`a`);
-    sidebarText.textContent = personalArr[{$el}];
-    const offcanvas = document.getElementsByClassName(`offcanvas-body`);
+// personalArr.forEach(el=>{
     
-        
-})
+//     const sidebarText = document.createElement(`a`);
+//     sidebarText.textContent = el;
+//     const offcanvas = document.getElementsByClassName(`offcanvas-body`)[0];
+//     offcanvas.append(sidebarText);
+// })
+const sidebar = document.getElementById('offcanvasWithBothOptions');
+const sidebarClose = new bootstrap.Offcanvas(sidebar);
+
+for (let i = 0; i < personalArr.length; i++) {
+
+    const sidebarText = document.createElement(`a`);
+    sidebarText.textContent = personalArr[i];
+    sidebarText.href = `#${personalArr_lowerCase[i]}`;
+
+    const offcanvas = document.getElementsByClassName(`offcanvas-body`)[0];
+    offcanvas.append(sidebarText);
+
+
+    if ((i + 1) % 4 === 0 && i !== personalArr.length - 1) {
+        const line = document.createElement('span');
+        line.textContent = '------------';
+        offcanvas.append(line);
+    }
+
+    // 이동 위치 계산
+    sidebarText.addEventListener('click', function(event) {
+        event.preventDefault(); // 기본 링크 동작 방지, 없으면 targetPosition 작동하지 않음
+
+        // 사이드바 닫기
+        sidebarClose.hide();
+
+        const targetId = personalArr_lowerCase[i]; // 해당 MBTI 유형에 대한 ID
+        const targetElement = document.getElementById(targetId); // 해당 MBTI 유형의 컨테이너 요소 가져오기
+        const offsetTop = targetElement.offsetTop; // 스크롤될 요소의 상단 위치
+        const windowHeight = window.innerHeight; // 창의 높이
+        const targetPosition = offsetTop - (windowHeight / 3); // 스크롤될 위치 계산
+        window.scrollTo({
+            top: targetPosition            
+        });
+    });
+
+
+}
 
 
 // img, text 생성
 const body = document.querySelector(`body`);
-const section = document.createElement(`section`);
+const section = document.querySelector(`section`);
     body.appendChild(section);
 
 
@@ -73,10 +110,8 @@ const section = document.createElement(`section`);
 
     const container = document.createElement(`div`);
     container.classList.add(`container`);
-    container.style.display = 'flex';
-    container.style.flexDirection = 'row'; 
-    container.style.alignItems = 'center'; 
-    container.style.textAlign = 'center';
+    container.setAttribute(`id`, el);
+    
     article.appendChild(container); 
 
     const imgCol = document.createElement(`div`);
