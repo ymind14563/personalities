@@ -66,6 +66,9 @@ for (let i = 0; i < personalArr.length; i++) {
     const offcanvas = document.getElementsByClassName(`offcanvas-body`)[0];
     offcanvas.append(sidebarText);
 
+    
+
+
 
     if ((i + 1) % 4 === 0 && i !== personalArr.length - 1) {
         const line = document.createElement('span');
@@ -73,13 +76,14 @@ for (let i = 0; i < personalArr.length; i++) {
         offcanvas.append(line);
     }
 
-    // 이동 위치 계산
+    // 클릭 이벤트 추가
     sidebarText.addEventListener('click', function(event) {
         event.preventDefault(); // 기본 링크 동작 방지, 없으면 targetPosition 작동하지 않음
 
         // 사이드바 닫기
         sidebarClose.hide();
 
+        // 이동 위치 계산   
         const targetId = personalArr_lowerCase[i]; // 해당 MBTI 유형에 대한 ID
         const targetElement = document.getElementById(targetId); // 해당 MBTI 유형의 컨테이너 요소 가져오기
         const offsetTop = targetElement.offsetTop; // 스크롤될 요소의 상단 위치
@@ -301,3 +305,37 @@ for (let m = 0; m < personalTypeArr.length; m++) {
         modalInstance.show();
     });
 }
+
+
+// 검색 기능
+let submit = document.querySelector(`button[type = "submit"]`);
+
+submit.addEventListener("click", (event) => {
+    event.preventDefault(); // 기본 동작 방지
+
+    const finder = document.querySelector('.form-control.me-2');
+    const userInput = finder.value.toLowerCase(); // 대 -> 소, 소 -> 소
+
+    // console.log(userInput);
+
+    if (!personalTypeArr.includes(userInput)) {
+        alert(`올바르지 않은 입력입니다.`);
+        return;
+    }
+
+    const targetId = userInput; // 사용자 입력과 동일한 ID
+    const targetElement = document.getElementById(targetId); // 해당 MBTI 유형의 컨테이너 요소 가져오기
+
+    // console.log(targetElement);
+   
+    const offsetTop = targetElement.offsetTop; // 스크롤될 요소의 상단 위치
+    const windowHeight = window.innerHeight; // 창의 높이
+    const targetPosition = offsetTop - (windowHeight / 3); // 스크롤될 위치 계산
+
+    window.scrollTo({
+        top: targetPosition        
+    });
+
+});
+
+
