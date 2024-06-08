@@ -94,7 +94,26 @@ for (let i = 0; i < personalArr.length; i++) {
         });
     });
 
+    // 사이드바 배경색 랜덤
+    const offcanvas_text_bgs = document.querySelectorAll(`.offcanvas-body a`);
 
+    const randomColor = () => {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`
+    }
+
+    offcanvas_text_bgs.forEach(offcanvas_text_bg => {
+
+    offcanvas_text_bg.addEventListener(`mouseover`, () => {
+        offcanvas_text_bg.style.backgroundColor = randomColor();
+    })
+
+    offcanvas_text_bg.addEventListener('mouseleave', () => {
+        offcanvas_text_bg.style.backgroundColor = ''; // 초기값으로 되돌림
+    });
+    })
 }
 
 

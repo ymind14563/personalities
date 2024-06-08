@@ -146,12 +146,13 @@ body div img {
     text-decoration: none;
     letter-spacing: 3px;
     font-family: "Poor Story", system-ui;
+    font-weight: bold;
 
 }
 
-.offcanvas-body a:hover {
+/* .offcanvas-body a:hover {
     background-color: skyblue;
-}
+} */
 
 /* .container:hover {
     border: 5px solid rgb(181, 181, 181);
@@ -188,7 +189,7 @@ body div img {
         height: 50px;
         width: 300px;
         font-size: 25px;
-        background-color: rgb(222, 222, 222);
+        background-color: rgb(240, 240, 240);
 
     }
 
@@ -216,8 +217,7 @@ body div img {
         height: 70px;
         width: 200px;
         font-size: 25px;
-        background-color: rgb(222, 222, 222);
-
+        background-color: rgb(240, 240, 240);
     }
 
     div .text-col {
@@ -318,7 +318,7 @@ body div img {
 
     div .inform-btn {
         position: relative;
-        left: 130px;
+        left: 120px;
         bottom: 135px;
         font-weight: bold;
         border-radius: 15px;
@@ -345,7 +345,7 @@ body div img {
 
     div .inform-btn {
         position: relative;
-        left: 130px;
+        left: 110px;
         bottom: 135px;
         font-weight: bold;
         border-radius: 15px;
@@ -362,12 +362,12 @@ body div img {
     }
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 369px) {
     
     div .inform-btn {
         position: relative;
-        left: 80px;
-        bottom: 135px;
+        left: 70px;
+        bottom: 105px;
         font-weight: bold;
         border-radius: 15px;
         height: 50px;
@@ -382,12 +382,24 @@ body div img {
         
     }
 
+    .textWrapper .titleText, .textWrapper .contentText {
+        font-size: 20px;
+        letter-spacing: 5px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
 }
 
 
+@media screen and (max-width: 270px) {
+    body {
+        min-width: 270px; /* 최소 너비 설정 */
+        overflow-x: hidden; /* 가로 스크롤 방지 */
+    }
+}
 
 
-@media screen and (max-width: 240px) {
+@media screen and (max-width: 245px) {
     body div .modal {
         display: none;
     }
