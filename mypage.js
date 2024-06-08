@@ -15,6 +15,9 @@ saveButton.addEventListener("click", (event) => {
         alert('올바르지 않은 입력입니다.');
     } else {
         alert('성공적으로 저장되었습니다.');
+        inputs.forEach(input => {
+            input.value = '';
+        });
     }
 });
 
