@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 50%;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+form {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+form textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+    font-size: 18px;
+    height: 20px;
+}
+
+form button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.post {
+    display: flex;
+    align-items: center; /* 포스트 내용과 버튼을 세로 중앙 정렬합니다. */
+    justify-content: space-between; /* 포스트 내용과 버튼을 좌우로 정렬합니다. */
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: left;
+}
+
+.post p {
+    margin: 0;
+    flex: 1; /* 포스트 내용이 남은 공간을 모두 차지하도록 설정합니다. */
+}
+
+.post button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #b4b4b5;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.post button:hover {
+    background-color: #4d4d4d;
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    16.67% { color: orange; }
+    33.33% { color: yellow; }
+    50% { color: green; }
+    66.67% { color: blue; }
+    83.33% { color: indigo; }
+    100% { color: violet; }
+}
+
+.rainbow-text {
+    animation: rainbow 1s infinite;
+}
