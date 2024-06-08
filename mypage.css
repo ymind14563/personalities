@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center; 
+    height: 100vh;
+}
+
+.container main {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+button {
+    border: 1px black;
+    margin-top: 20px;
+    height: 30px;
+    width: 80px;
+    color: black;
+    
+}
+
+button a {
+    text-decoration: none;
+    color: black;
+}
