@@ -7,6 +7,8 @@ section {
 
     /* background: -webkit-linear-gradient(to bottom, #ffffff, #b3e6ff, #d291bc, #ffff99, #b7e4c7); */
     background: linear-gradient(to bottom, #ffffff, #b3e6ff, #d291bc, #ffff99, #b7e4c7);
+    /* margin-bottom: 10%; */
+    padding-bottom: 10%;
     
     
 }    
@@ -409,4 +411,33 @@ body div img {
     }
 }
 
+/* footer를 제일 상단에 올려서 본문에 가려 눌러지지 않는 현상 방지 */
+footer {
+    position: fixed;
+    bottom: 2%;
+    left: 1.5%;
+    opacity: 0.8;
+    z-index: 1000; /* 다른 요소 위에 올라오도록 z-index 값 설정 */
+}
 
+.accordion-button {
+    width: 230px;
+    font-family: "Poor Story", system-ui;
+    font-size: 20px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+
+}
+
+.accordion-body a {
+    display: flex; 
+    font-size: 20px;
+    
+    align-items: center;
+    color: gray;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-family: "Poor Story", system-ui;
+    font-weight: bold;
+    line-height: 130%
+}

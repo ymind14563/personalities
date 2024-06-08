@@ -357,4 +357,30 @@ submit.addEventListener("click", (event) => {
 
 });
 
+// footer accordion
+const footer = document.querySelector(`.accordion-body`);
+const title = [`16personalities`,`상단 이미지`,`MBTI 기도문 이미지`,`궁합테이블 이미지`,`GitHub`,`blog`,`Contact me`];
+const link = [
+    `https://www.16personalities.com/ko`,
+    `https://namu.wiki/w/%EC%9A%B0%EB%A6%AC%EB%93%A4%EC%9D%98%20MBTI/%EB%93%B1%EC%9E%A5%EC%9D%B8%EB%AC%BC?rev=96`,
+    `https://www.instagram.com/qrrating_mbti/`,
+    `https://www.dreamsaroundtheworld.com/wp-content/uploads/2017/01/Myers_Briggs_Type_Compatibility_Chart.pdf`,
+    `https://github.com/ymind14563`,
+    `https://ymind14563.github.io/`,
+    `mailto:ymind14563@gmail.com`
+];
+for (let i = 0; i < 7; i++) {
+const footer_text = document.createElement(`a`);
+footer_text.setAttribute(`href`,link[i]);
+footer_text.setAttribute(`target`,`_blank`);
+console.log(footer_text.href);
+footer_text.innerHTML = title[i];
+footer_text.append(document.createElement(`br`));
+footer.append(footer_text);
 
+if (i  === 3) {
+    const line = document.createElement('span');
+    line.textContent = '---------';
+    footer.append(line);
+}
+}
