@@ -227,7 +227,7 @@ for (let i = 0; i < personalArr.length; i++) {
     btn.classList.add(`btn`, `btn-outline-secondary`);
     btn.setAttribute(`data-bs-toggle`, `modal${j + 1}`);
     btn.setAttribute(`data-bs-target`, `#modal${j + 1}`);
-    btn.textContent= `살펴보기`;
+    btn.textContent= `보기`;
     btn.style.opacity = '0';
 
 

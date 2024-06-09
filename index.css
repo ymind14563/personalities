@@ -306,7 +306,7 @@ body div img {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
     div .text-col {
         margin-left: 35px;
@@ -368,7 +368,7 @@ body div img {
     
     div .inform-btn {
         position: relative;
-        left: 70px;
+        left: 100px;
         bottom: 105px;
         font-weight: bold;
         border-radius: 15px;
@@ -392,23 +392,52 @@ body div img {
     }
 }
 
+@media screen and (max-width: 300px) {
+    
+    div .inform-btn {
+        position: relative;
+        left: 70px;
+        bottom: 105px;
+        font-weight: bold;
+        border-radius: 15px;
+        height: 50px;
+        width: 50px;
+        font-size: 10px;
+        background-color: rgb(222, 222, 222);
 
-@media screen and (max-width: 270px) {
+    }
+}
+
+@media screen and (max-width: 250px) {
     body {
-        min-width: 270px; /* 최소 너비 설정 */
-        overflow-x: hidden; /* 가로 스크롤 방지 */
+        min-width: 250px; /* 최소 너비 설정 */
+        overflow-x: hidden; 
     }
 }
 
 
 @media screen and (max-width: 245px) {
-    body div .modal {
+
+    div .inform-btn {
+        position: relative;
+        left: 70px;
+        bottom: 105px;
+        font-weight: bold;
+        border-radius: 15px;
+        height: 50px;
+        width: 50px;
+        font-size: 10px;
+        background-color: rgb(222, 222, 222);
+
+    }
+
+    /* body div .modal {
         display: none;
     }
 
     div .inform-btn {
         display: none;
-    }
+    } */
 }
 
 /* footer를 제일 상단에 올려서 본문에 가려 눌러지지 않는 현상 방지 */
@@ -440,4 +469,16 @@ footer {
     font-family: "Poor Story", system-ui;
     font-weight: bold;
     line-height: 130%
+}
+
+body.modal-open {
+
+    overflow: auto;
+
+}
+
+body.modal-open[style] {
+
+    padding-right: 0px !important;
+
 }
