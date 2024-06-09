@@ -45,9 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         const content = document.getElementById('content').value;
         savePost(content);
-        document.getElementById('content').value = '';
+        document.getElementById('content').value = ``;
+        
+        const div = document.querySelector('#intro');
+        div.textContent = ``;
+    
         loadPosts();
     });
 
     loadPosts();
 });
+
+const chgInput = document.querySelector('#content');
+
+chgInput.addEventListener('input', function() {
+    const div = document.querySelector('#intro');
+    div.textContent = this.value;
+})
+
